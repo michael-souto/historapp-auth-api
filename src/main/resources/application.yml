@@ -1,0 +1,28 @@
+server:
+  port: 8100
+  compression:
+    enabled: true
+
+
+  profiles:
+    active: ${APP_PROFILE:dev}
+  jackson:
+    mapper:
+      DEFAULT_VIEW_INCLUSION: true
+
+authorization:
+  client-id: ${CLIENT_ID:detrasoft-app}
+  client-secret: ${CLIENT_SECRET:detrasoft-app}
+  jwt-secret: ${SECRET:detrasoft}
+  jwt-duration: ${TOKEN_DURATION:3600}
+  security-https: true
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
